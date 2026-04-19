@@ -186,16 +186,11 @@ export default function AboutPage() {
             >
               The vision
             </h2>
-            <div className="space-y-5 text-base md:text-lg leading-relaxed" style={{ color: 'var(--nw-slate)' }}>
-              <p>
-                Nightwise starts with nights out. But the technology behind it &mdash;
-                AI-mediated group decision-making &mdash; has applications far beyond nightlife.
-                The proprietary dataset of how small groups make decisions together is uniquely valuable.
-              </p>
-              <p>
-                For now, we&apos;re focused on making every night out better. The rest follows.
-              </p>
-            </div>
+            <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--nw-slate)' }}>
+              Nightwise starts with nights out. But the way groups make decisions together is broken
+              everywhere &mdash; not just nightlife. We&apos;re starting where the problem is most
+              fun to solve. What comes next is bigger.
+            </p>
           </Section>
         </div>
       </section>
