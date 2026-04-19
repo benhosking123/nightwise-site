@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --nw-violet: #3A0C6B;
+  --nw-blue: #2D5CF6;
+  --nw-amber: #FFB84D;
+  --nw-magenta: #FF5F8F;
+  --nw-white: #F5F7FA;
+  --nw-slate: #8892A6;
+  --nw-dark: #0A0A1A;
+  --nw-darker: #0D0D2B;
+}
+
+@theme inline {
+  --color-nw-amber: var(--nw-amber);
+  --color-nw-magenta: var(--nw-magenta);
+  --color-nw-white: var(--nw-white);
+  --color-nw-slate: var(--nw-slate);
+  --color-nw-dark: var(--nw-dark);
+  --color-nw-darker: var(--nw-darker);
+  --color-nw-violet: var(--nw-violet);
+  --color-nw-blue: var(--nw-blue);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #3A0C6B 0%, #1a3db5 100%);
+  background-attachment: fixed;
+  color: #F5F7FA;
+  min-height: 100vh;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
