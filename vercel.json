@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/api/beacon/audit/route.ts": {
+      "maxDuration": 60
+    }
+  }
+}

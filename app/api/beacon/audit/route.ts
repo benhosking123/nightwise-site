@@ -118,10 +118,12 @@ export async function POST(request: Request) {
     });
 
     const rawText = message.content[0].type === 'text' ? message.content[0].text : '';
+    const cleaned = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim();
     let auditResult: any;
     try {
-      auditResult = JSON.parse(rawText);
+      auditResult = JSON.parse(cleaned);
     } catch {
+      console.error('Claude raw response:', cleaned.slice(0, 500));
       throw new Error('Claude returned invalid JSON');
     }
 
