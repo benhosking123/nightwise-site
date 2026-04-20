@@ -41,23 +41,23 @@ export async function POST(request: Request) {
 
   if (!mapsKey) {
     console.error('NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set');
-    return Response.json({ error: 'Google Maps API key not configured' }, { status: 500 });
+    return Response.json({ error: 'Audit failed. Please try again.' }, { status: 500 });
   }
   if (!anthropicKey) {
     console.error('ANTHROPIC_API_KEY is not set');
-    return Response.json({ error: 'Anthropic API key not configured' }, { status: 500 });
+    return Response.json({ error: 'Audit failed. Please try again.' }, { status: 500 });
   }
 
   let body: { placeId?: string; venueName?: string; address?: string };
   try {
     body = await request.json();
   } catch {
-    return Response.json({ error: 'Invalid request body' }, { status: 400 });
+    return Response.json({ error: 'Audit failed. Please try again.' }, { status: 400 });
   }
 
   const { placeId, venueName, address } = body;
   if (!placeId || !venueName) {
-    return Response.json({ error: 'placeId and venueName are required' }, { status: 400 });
+    return Response.json({ error: 'Audit failed. Please try again.' }, { status: 400 });
   }
 
   try {
@@ -138,6 +138,6 @@ export async function POST(request: Request) {
     return Response.json({ ...auditResult, confidence });
   } catch (err: any) {
     console.error('Audit error:', err?.message ?? err);
-    return Response.json({ error: err?.message ?? 'Audit failed' }, { status: 500 });
+    return Response.json({ error: 'Audit failed. Please try again.' }, { status: 500 });
   }
 }

@@ -166,7 +166,6 @@ export default function AuditTool() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'result' | 'error'>('idle')
   const [result, setResult] = useState<AuditResult | null>(null)
-  const [errorMsg, setErrorMsg] = useState('')
 
   // Initialise Places Autocomplete once Maps is ready
   const initAutocomplete = useCallback(() => {
@@ -217,7 +216,6 @@ export default function AuditTool() {
     setSelectedVenue(null)
     setStatus('idle')
     setResult(null)
-    setErrorMsg('')
     if (inputRef.current) inputRef.current.value = ''
   }
 
@@ -225,7 +223,6 @@ export default function AuditTool() {
     if (!selectedVenue) return
     setStatus('loading')
     setResult(null)
-    setErrorMsg('')
     try {
       const res = await fetch('/api/beacon/audit', {
         method: 'POST',
@@ -242,8 +239,7 @@ export default function AuditTool() {
       }
       setResult(data as AuditResult)
       setStatus('result')
-    } catch (err: any) {
-      setErrorMsg(err?.message ?? 'Unknown error')
+    } catch {
       setStatus('error')
     }
   }
@@ -375,9 +371,6 @@ export default function AuditTool() {
                   hello@nightwise.app
                 </a>
               </p>
-              {errorMsg && (
-                <p className="text-xs mt-2" style={{ color: 'rgba(136,146,166,0.6)' }}>{errorMsg}</p>
-              )}
               <button
                 onClick={handleReset}
                 className="mt-4 px-6 py-2.5 rounded-full text-sm border transition-colors"
