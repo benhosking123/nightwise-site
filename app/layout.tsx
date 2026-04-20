@@ -3,6 +3,7 @@ import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import GoogleMapsLoader from '@/components/GoogleMapsLoader'
 
 const poppins = Poppins({
   weight: ['600', '700'],
@@ -42,9 +43,12 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const mapsKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
+        {mapsKey && <GoogleMapsLoader apiKey={mapsKey} />}
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
