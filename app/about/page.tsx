@@ -2,6 +2,8 @@
 
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
+import NoxOwl from '@/components/brand/NoxOwl'
+import BHCircle from '@/components/brand/BHCircle'
 
 function Section({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -93,18 +95,9 @@ export default function AboutPage() {
             </h2>
 
             <div className="flex flex-col sm:flex-row items-start gap-10">
-              {/* Photo placeholder */}
+              {/* Founder photo */}
               <div className="shrink-0">
-                <div
-                  className="w-44 h-44 rounded-full border-2 border-dashed flex flex-col items-center justify-center text-center p-4"
-                  style={{
-                    borderColor: 'rgba(255,255,255,0.2)',
-                    background: 'rgba(255,255,255,0.03)',
-                  }}
-                >
-                  <span className="text-3xl mb-2">👤</span>
-                  <p className="text-xs" style={{ color: 'var(--nw-slate)' }}>Founder photo<br />200×200px</p>
-                </div>
+                <BHCircle size={176} />
               </div>
 
               <div className="flex-1">
@@ -118,8 +111,7 @@ export default function AboutPage() {
                 <div className="space-y-4 text-base leading-relaxed" style={{ color: 'var(--nw-slate)' }}>
                   <p>
                     University of York graduate. London-based. Building Nightwise to solve the problem
-                    every friend group has &mdash; deciding where to go without the drama. Previously
-                    worked in [Ben to fill in].
+                    every friend group has &mdash; deciding where to go without the drama.
                   </p>
                   <p>
                     Started Nightwise after one too many nights spent arguing in the group chat instead
@@ -127,11 +119,11 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <a
-                  href="#"
+                  href="mailto:ben@nightwise.co.uk"
                   className="inline-flex items-center gap-2 mt-6 text-sm font-medium transition-colors hover:text-white"
                   style={{ color: 'var(--nw-amber)' }}
                 >
-                  Connect on LinkedIn &rarr;
+                  Get in touch &rarr;
                 </a>
               </div>
             </div>
@@ -152,14 +144,15 @@ export default function AboutPage() {
 
             <div className="flex flex-col sm:flex-row items-start gap-10">
               <div
-                className="shrink-0 w-36 h-36 rounded-3xl border-2 border-dashed flex flex-col items-center justify-center text-center p-4"
+                className="shrink-0 w-36 h-36 rounded-3xl flex items-center justify-center overflow-hidden"
                 style={{
-                  borderColor: 'rgba(255,184,77,0.3)',
-                  background: 'rgba(255,255,255,0.03)',
+                  background:
+                    'radial-gradient(ellipse at 50% 30%, rgba(45,92,246,0.22), transparent 70%), #1C2340',
+                  border: '1px solid rgba(255,184,77,0.25)',
+                  boxShadow: '0 12px 32px rgba(58,12,107,0.4)',
                 }}
               >
-                <span className="text-4xl">🦉</span>
-                <p className="text-xs mt-2" style={{ color: 'var(--nw-slate)' }}>NOX illustration</p>
+                <NoxOwl size={120} />
               </div>
 
               <div className="flex-1">

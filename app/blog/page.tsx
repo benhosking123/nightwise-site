@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { posts } from '@/lib/blog'
+import NoxOwl from '@/components/brand/NoxOwl'
 
 export const metadata: Metadata = {
   title: 'Blog \u2014 Nightwise',
   description: 'Nightlife planning tips, group psychology, and AI insights from the Nightwise team.',
+  openGraph: {
+    title: 'From the desk of NOX \u2014 Nightwise Blog',
+    description: 'Nightlife, group dynamics, and the AI that mediates both.',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
+  },
 }
 
 export default function BlogIndexPage() {
@@ -47,17 +53,22 @@ export default function BlogIndexPage() {
                 borderColor: 'rgba(255,255,255,0.08)',
               }}
             >
-              {/* Cover image placeholder */}
+              {/* Cover illustration */}
               <div
-                className="w-full h-48 border-b flex items-center justify-center"
+                className="w-full h-48 border-b flex items-center justify-center relative overflow-hidden"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
+                  background:
+                    'radial-gradient(ellipse at 30% 20%, rgba(255,184,77,0.18), transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(255,95,143,0.12), transparent 60%), #1C2340',
                   borderColor: 'rgba(255,255,255,0.06)',
                 }}
               >
-                <p className="text-xs" style={{ color: 'rgba(136,146,166,0.5)' }}>
-                  Cover image placeholder
-                </p>
+                <NoxOwl size={120} />
+                <span
+                  className="absolute bottom-3 left-3 text-[10px] uppercase tracking-widest"
+                  style={{ color: 'rgba(255,184,77,0.7)' }}
+                >
+                  {post.category}
+                </span>
               </div>
 
               <div className="p-7">
@@ -90,10 +101,13 @@ export default function BlogIndexPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div
-                      className="w-7 h-7 rounded-full border-2 border-dashed flex items-center justify-center text-xs"
-                      style={{ borderColor: 'rgba(255,184,77,0.3)' }}
+                      className="w-7 h-7 rounded-full flex items-center justify-center overflow-hidden shrink-0"
+                      style={{
+                        background: '#1C2340',
+                        border: '1px solid rgba(255,184,77,0.35)',
+                      }}
                     >
-                      🦉
+                      <NoxOwl size={22} />
                     </div>
                     <span className="text-xs font-medium" style={{ color: 'var(--nw-slate)' }}>
                       {post.author}

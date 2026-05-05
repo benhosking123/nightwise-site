@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import NoxOwl from '@/components/brand/NoxOwl'
 
 const navLinks = [
   { label: 'How it Works', href: '/how-it-works' },
@@ -18,10 +19,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
         {/* NOX icon */}
         <div
-          className="w-14 h-14 rounded-full border-2 border-dashed flex items-center justify-center text-2xl mb-8 transition-transform hover:scale-110"
-          style={{ borderColor: 'rgba(255,184,77,0.3)' }}
+          className="w-14 h-14 rounded-full flex items-center justify-center mb-8 transition-transform hover:scale-110 overflow-hidden"
+          style={{
+            background: '#1C2340',
+            border: '1.5px solid rgba(255,184,77,0.35)',
+            boxShadow: '0 4px 16px rgba(255,184,77,0.18)',
+          }}
         >
-          🦉
+          <NoxOwl size={48} />
         </div>
 
         {/* Wordmark */}

@@ -2,28 +2,26 @@
 
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
+import AppMockup from '@/components/brand/AppMockup'
 
 const steps = [
   {
     n: '1',
     title: "Tell NOX what you're into",
     body: 'Pick your vibe, budget, and music. Takes 10 seconds.',
-    placeholder: 'Preference pills mockup',
-    dims: '280×380',
+    variant: 'pills' as const,
   },
   {
     n: '2',
     title: 'Everyone picks their vibe',
     body: 'Share the link. Everyone adds their preferences privately. No arguments.',
-    placeholder: 'Group joining mockup',
-    dims: '280×380',
+    variant: 'avatars' as const,
   },
   {
     n: '3',
     title: 'NOX finds the spot',
     body: "NOX weighs up everyone's preferences and finds venues that actually work for the whole group.",
-    placeholder: 'Venue cards mockup',
-    dims: '280×380',
+    variant: 'venues' as const,
   },
 ]
 
@@ -84,21 +82,10 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              {/* Mockup placeholder */}
+              {/* App mockup illustration */}
               <div className="shrink-0 w-full md:w-auto flex justify-center">
-                <div
-                  className="w-[260px] h-[360px] md:w-[300px] md:h-[400px] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center text-center p-6"
-                  style={{
-                    borderColor: 'rgba(255,255,255,0.15)',
-                    background: 'rgba(255,255,255,0.03)',
-                  }}
-                >
-                  <p className="text-xs mb-2" style={{ color: 'var(--nw-slate)' }}>
-                    {step.placeholder}
-                  </p>
-                  <p className="text-xs opacity-40" style={{ color: 'var(--nw-slate)' }}>
-                    {step.dims}px
-                  </p>
+                <div className="w-[240px] h-[440px] md:w-[260px] md:h-[480px]">
+                  <AppMockup variant={step.variant} />
                 </div>
               </div>
             </motion.div>

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Nightwise',
     description: 'Get in touch for partnerships, press, or investment.',
-    images: [{ url: '/og-placeholder.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
   },
 }
 

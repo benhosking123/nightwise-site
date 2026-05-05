@@ -1,5 +1,9 @@
 'use client'
 
+import NoxOwl from '@/components/brand/NoxOwl'
+import Wordmark from '@/components/brand/Wordmark'
+import AppMockup from '@/components/brand/AppMockup'
+
 const keyFacts = [
   { label: 'Founded', value: '2025' },
   { label: 'Location', value: 'London, UK' },
@@ -14,7 +18,12 @@ const brandColors = [
   { name: 'Amber Glow', hex: '#FFB84D', role: 'Accent / CTAs / NOX eyes' },
 ]
 
-const screenshots = ['App screenshot 1', 'App screenshot 2', 'App screenshot 3']
+type ScreenshotVariant = 'pills' | 'avatars' | 'venues'
+const screenshots: { label: string; variant: ScreenshotVariant }[] = [
+  { label: 'Preference pills', variant: 'pills' },
+  { label: 'Group joining', variant: 'avatars' },
+  { label: 'Venue picks', variant: 'venues' },
+]
 
 export default function PressPage() {
   return (
@@ -92,16 +101,16 @@ export default function PressPage() {
             {keyFacts.map((fact, i) => (
               <div
                 key={fact.label}
-                className="flex items-center justify-between px-7 py-4"
+                className="flex items-center justify-between gap-4 px-5 sm:px-7 py-4"
                 style={{
                   background: i % 2 === 0 ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.01)',
                   borderBottom: i < keyFacts.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
                 }}
               >
-                <span className="text-sm font-medium" style={{ color: 'var(--nw-slate)' }}>
+                <span className="text-sm font-medium shrink-0" style={{ color: 'var(--nw-slate)' }}>
                   {fact.label}
                 </span>
-                <span className="text-sm text-white font-medium">{fact.value}</span>
+                <span className="text-sm text-white font-medium text-right">{fact.value}</span>
               </div>
             ))}
           </div>
@@ -128,18 +137,24 @@ export default function PressPage() {
               }}
             >
               <div
-                className="w-20 h-20 rounded-2xl border-2 border-dashed flex items-center justify-center text-4xl"
-                style={{ borderColor: 'rgba(255,184,77,0.3)' }}
+                className="w-24 h-24 rounded-2xl flex items-center justify-center overflow-hidden"
+                style={{
+                  background:
+                    'radial-gradient(ellipse at 50% 30%, rgba(45,92,246,0.22), transparent 70%), #1C2340',
+                  border: '1px solid rgba(255,184,77,0.25)',
+                }}
               >
-                🦉
+                <NoxOwl size={88} />
               </div>
               <p className="text-sm text-white text-center">NOX owl logo</p>
-              <button
+              <a
+                href="/og-image.svg"
+                download="nightwise-nox-owl.svg"
                 className="text-xs px-4 py-2 rounded-full border transition-all hover:bg-white/10"
                 style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'var(--nw-slate)' }}
               >
                 Download NOX logo
-              </button>
+              </a>
             </div>
 
             {/* Wordmark */}
@@ -152,19 +167,15 @@ export default function PressPage() {
                 minHeight: '180px',
               }}
             >
-              <span
-                className="text-2xl font-semibold text-white"
-                style={{ fontFamily: 'var(--font-poppins)' }}
-              >
-                Nightwise
-              </span>
+              <Wordmark size="lg" />
               <p className="text-sm" style={{ color: 'var(--nw-slate)' }}>Wordmark (light)</p>
-              <button
+              <a
+                href="mailto:press@nightwise.co.uk?subject=Wordmark%20asset%20request"
                 className="text-xs px-4 py-2 rounded-full border transition-all hover:bg-white/10"
                 style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'var(--nw-slate)' }}
               >
-                Download wordmark
-              </button>
+                Request high-res
+              </a>
             </div>
           </div>
 
@@ -199,31 +210,28 @@ export default function PressPage() {
 
           {/* Screenshots */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {screenshots.map((label, i) => (
+            {screenshots.map(s => (
               <div
-                key={i}
-                className="rounded-2xl border flex flex-col items-center justify-center gap-3 p-6"
+                key={s.label}
+                className="rounded-2xl border flex flex-col items-center gap-3 p-5"
                 style={{
                   background: 'rgba(255,255,255,0.04)',
                   borderColor: 'rgba(255,255,255,0.08)',
-                  minHeight: '200px',
                 }}
               >
-                <div
-                  className="w-full rounded-xl border-2 border-dashed flex items-center justify-center"
-                  style={{
-                    borderColor: 'rgba(255,255,255,0.12)',
-                    height: '120px',
-                  }}
-                >
-                  <p className="text-xs text-center px-4" style={{ color: 'var(--nw-slate)' }}>{label}</p>
+                <div className="w-full max-w-[180px] aspect-[3/5]">
+                  <AppMockup variant={s.variant} />
                 </div>
-                <button
+                <p className="text-xs text-center" style={{ color: 'var(--nw-slate)' }}>
+                  {s.label}
+                </p>
+                <a
+                  href="mailto:press@nightwise.co.uk?subject=Screenshot%20asset%20request"
                   className="text-xs px-4 py-2 rounded-full border transition-all hover:bg-white/10 w-full text-center"
                   style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'var(--nw-slate)' }}
                 >
-                  Download screenshot
-                </button>
+                  Request high-res
+                </a>
               </div>
             ))}
           </div>

@@ -13,10 +13,14 @@ const testimonials = [
   {
     quote: 'Finally an app that stops the WhatsApp argument.',
     author: 'Beta user',
+    initial: 'A',
+    color: '#FFB84D',
   },
   {
     quote: 'We actually went out 30 minutes earlier than usual.',
     author: 'Beta user',
+    initial: 'J',
+    color: '#FF5F8F',
   },
 ]
 
@@ -79,10 +83,14 @@ export default function SocialProof() {
               <p className="text-lg text-white leading-relaxed mb-5">{t.quote}</p>
               <div className="flex items-center gap-3">
                 <div
-                  className="w-8 h-8 rounded-full border-2 border-dashed flex items-center justify-center text-xs"
-                  style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
+                  style={{
+                    background: `${t.color}25`,
+                    color: t.color,
+                    border: `1.5px solid ${t.color}66`,
+                  }}
                 >
-                  👤
+                  {t.initial}
                 </div>
                 <p className="text-sm" style={{ color: 'var(--nw-slate)' }}>
                   {t.author}

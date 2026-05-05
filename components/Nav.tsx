@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import NoxOwl from '@/components/brand/NoxOwl'
 
 const navLinks = [
   { label: 'How it Works', href: '/how-it-works' },
@@ -14,16 +15,16 @@ const navLinks = [
 function NoxIcon({ size = 32 }: { size?: number }) {
   return (
     <div
-      className="rounded-full border-2 border-dashed flex items-center justify-center text-sm font-bold shrink-0"
+      className="rounded-full flex items-center justify-center shrink-0 overflow-hidden"
       style={{
         width: size,
         height: size,
-        borderColor: 'var(--nw-amber)',
-        color: 'var(--nw-amber)',
-        fontSize: size * 0.45,
+        background: '#1C2340',
+        border: '1.5px solid rgba(255,184,77,0.4)',
+        boxShadow: '0 2px 8px rgba(255,184,77,0.18)',
       }}
     >
-      🦉
+      <NoxOwl size={size * 0.86} ariaLabel="Nightwise — home" />
     </div>
   )
 }
@@ -85,6 +86,8 @@ export default function Nav() {
           <div className="flex items-center gap-4 shrink-0">
             <a
               href="https://nightwise.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-1.5 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:scale-105"
               style={{
                 background: 'var(--nw-amber)',
@@ -97,7 +100,7 @@ export default function Nav() {
 
             {/* Hamburger */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg"
+              className="md:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 rounded-lg"
               onClick={() => setMenuOpen(v => !v)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
@@ -154,7 +157,11 @@ export default function Nav() {
                   Nightwise
                 </span>
               </div>
-              <button onClick={() => setMenuOpen(false)} className="text-white/60 hover:text-white p-1" aria-label="Close menu">
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-white/60 hover:text-white w-11 h-11 flex items-center justify-center"
+                aria-label="Close menu"
+              >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
@@ -184,6 +191,8 @@ export default function Nav() {
             <div className="px-6 pb-10">
               <a
                 href="https://nightwise.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-center font-semibold py-4 rounded-full transition-all hover:scale-105"
                 style={{ background: 'var(--nw-amber)', color: 'var(--nw-dark)' }}
                 onClick={() => setMenuOpen(false)}

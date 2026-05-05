@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Nightwise Beacon \u2014 AI Visibility Audit for London Venues',
     description:
       'Find out how visible your venue is to AI, Google, TikTok and beyond. Free audit tool for London venue owners.',
-    images: [{ url: '/og-placeholder.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.svg', width: 1200, height: 630 }],
   },
 }
 

@@ -25,7 +25,7 @@ const tiers = [
       'We run live queries across ChatGPT, Gemini, and Perplexity — showing you verbatim what AI says about your venue right now. Full six-pillar breakdown, competitor comparison, specific action plan. Delivered as a branded PDF within 48 hours, with a 30-minute walkthrough call included.',
     note: 'One payment. No subscription.',
     cta: 'Get your full audit →',
-    ctaHref: '#',
+    ctaHref: 'mailto:beacon@nightwise.co.uk?subject=Full%20Audit%20%E2%80%94%20%C2%A379',
     highlighted: true,
   },
   {
@@ -36,7 +36,7 @@ const tiers = [
     description:
       "We re-run your audit every 30 days and tell you what moved, what didn't, and what to do next. Cancel any time.",
     cta: 'Start tracking →',
-    ctaHref: '#',
+    ctaHref: 'mailto:beacon@nightwise.co.uk?subject=Monthly%20Tracking%20%E2%80%94%20%C2%A329%2Fmonth',
     highlighted: false,
   },
 ]

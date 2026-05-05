@@ -23,14 +23,14 @@ export const metadata: Metadata = {
   title: 'Nightwise \u2014 Skip the group chat drama',
   description:
     "NOX the Owl plans your night out \u2014 so your mates don't have to argue about it. AI-powered group nightlife planning, based in London.",
-  metadataBase: new URL('https://nightwise.co'),
+  metadataBase: new URL('https://nightwise.co.uk'),
   openGraph: {
     title: 'Nightwise \u2014 Skip the group chat drama',
     description:
       "NOX the Owl plans your night out \u2014 so your mates don't have to argue about it.",
     type: 'website',
-    url: 'https://nightwise.co',
-    images: [{ url: '/og-placeholder.png', width: 1200, height: 630, alt: 'Nightwise' }],
+    url: 'https://nightwise.co.uk',
+    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'Nightwise' }],
     siteName: 'Nightwise',
   },
   twitter: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     title: 'Nightwise \u2014 Skip the group chat drama',
     description:
       "NOX the Owl plans your night out \u2014 so your mates don't have to argue about it.",
-    images: ['/og-placeholder.png'],
+    images: ['/og-image.svg'],
   },
 }
 

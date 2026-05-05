@@ -2,44 +2,46 @@
 
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import Link from 'next/link'
+import AppMockup from '@/components/brand/AppMockup'
 
-const steps = [
+type Variant = 'pills' | 'avatars' | 'venues'
+
+const steps: { n: string; title: string; body: string; variant: Variant }[] = [
   {
     n: '01',
     title: 'Create your night',
     body: "Name it. Share the link. Everyone joins in 10 seconds.",
-    placeholder: 'Create night mockup',
+    variant: 'avatars',
   },
   {
     n: '02',
     title: 'Everyone picks their vibe',
     body: "Preferences are private. No peer pressure. No compromise guilt. NOX sees what everyone wants — nobody else does.",
-    placeholder: 'Vibe selection mockup',
+    variant: 'pills',
   },
   {
     n: '03',
     title: 'NOX finds the spot',
     body: "NOX weighs up everyone's preferences — vibe, budget, music, area — and finds venues that actually work for the whole group. Not a list. A decision.",
-    placeholder: 'Venue recommendation mockup',
+    variant: 'venues',
   },
   {
     n: '04',
     title: 'Vote on the plan',
     body: "Love it, could work, or hard no. Anonymous until everyone's voted. NOX handles the rest.",
-    placeholder: 'Voting mockup',
+    variant: 'venues',
   },
   {
     n: '05',
     title: 'Go. Check in. Pivot.',
     body: "NOX checks in at each venue. Not feeling it? NOX finds alternatives on the spot. Transport, timing, closing times — all handled.",
-    placeholder: 'Check-in mockup',
+    variant: 'avatars',
   },
   {
     n: '06',
     title: 'Your night, recapped',
     body: "Every venue. Every rating. Shareable. Saved for next time.",
-    placeholder: 'Recap mockup',
+    variant: 'venues',
   },
 ]
 
@@ -98,15 +100,8 @@ function Step({ step, index }: { step: typeof steps[0]; index: number }) {
         transition={{ duration: 0.65, delay: reduce ? 0 : 0.1, ease: 'easeOut' as const }}
         className="shrink-0 w-full md:w-auto flex justify-center"
       >
-        <div
-          className="w-[260px] h-[360px] md:w-[300px] md:h-[400px] rounded-3xl border-2 border-dashed flex flex-col items-center justify-center text-center p-6"
-          style={{
-            borderColor: 'rgba(255,255,255,0.15)',
-            background: 'rgba(255,255,255,0.03)',
-          }}
-        >
-          <p className="text-xs" style={{ color: 'var(--nw-slate)' }}>{step.placeholder}</p>
-          <p className="text-xs opacity-40 mt-1" style={{ color: 'var(--nw-slate)' }}>300×400px</p>
+        <div className="w-[240px] h-[440px] md:w-[260px] md:h-[480px]">
+          <AppMockup variant={step.variant} />
         </div>
       </motion.div>
     </div>
@@ -212,6 +207,8 @@ export default function HowItWorksPage() {
           </h2>
           <a
             href="https://nightwise.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 hover:brightness-110"
             style={{
               background: 'var(--nw-amber)',

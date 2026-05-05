@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import StarField from '@/components/StarField'
+import NoxOwl from '@/components/brand/NoxOwl'
 
 function LondonSkyline() {
   return (
@@ -125,6 +126,8 @@ export default function Hero() {
             >
               <a
                 href="https://nightwise.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-semibold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-105 hover:brightness-110"
                 style={{
                   background: 'var(--nw-amber)',
@@ -152,22 +155,21 @@ export default function Hero() {
             className="shrink-0 w-full md:w-auto flex justify-center"
           >
             <div
-              className="w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-3xl flex flex-col items-center justify-center text-center p-8 border-2 border-dashed"
+              className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] rounded-3xl flex items-center justify-center"
               style={{
-                borderColor: 'rgba(255,255,255,0.15)',
-                background: 'rgba(255,255,255,0.03)',
+                background:
+                  'radial-gradient(ellipse at 50% 30%, rgba(45,92,246,0.22), transparent 70%), rgba(28,35,64,0.6)',
+                border: '1px solid rgba(255,184,77,0.18)',
+                boxShadow: '0 30px 80px rgba(58,12,107,0.45)',
                 backdropFilter: 'blur(8px)',
               }}
             >
-              <span
-                className="text-7xl mb-4"
+              <div
                 style={{ animation: reduce ? 'none' : 'float 4s ease-in-out infinite' }}
+                className="w-[78%] h-[78%] flex items-center justify-center"
               >
-                🦉
-              </span>
-              <p className="text-xs" style={{ color: 'var(--nw-slate)' }}>
-                NOX owl illustration<br />400&times;400px
-              </p>
+                <NoxOwl size={320} />
+              </div>
             </div>
           </motion.div>
         </div>

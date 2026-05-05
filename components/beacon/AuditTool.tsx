@@ -247,7 +247,7 @@ export default function AuditTool() {
   const band = result ? scoreBand(result.overallScore) : null
 
   return (
-    <section ref={sectionRef} className="py-8 px-6 pb-20">
+    <section id="audit" ref={sectionRef} className="py-8 px-6 pb-20">
       <motion.div
         initial={{ opacity: 0, y: reduce ? 0 : 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -367,8 +367,8 @@ export default function AuditTool() {
             >
               <p className="text-white mb-2">
                 We couldn't complete the audit for this venue. Please try again or contact{' '}
-                <a href="mailto:hello@nightwise.app" className="underline" style={{ color: '#FFB84D' }}>
-                  hello@nightwise.app
+                <a href="mailto:hello@nightwise.co.uk" className="underline" style={{ color: '#FFB84D' }}>
+                  hello@nightwise.co.uk
                 </a>
               </p>
               <button
@@ -532,7 +532,7 @@ export default function AuditTool() {
               {/* CTA */}
               <div className="text-center">
                 <a
-                  href={`mailto:beacon@nightwise.app?subject=${encodeURIComponent(`Full Audit Request - ${selectedVenue?.name}`)}`}
+                  href={`mailto:beacon@nightwise.co.uk?subject=${encodeURIComponent(`Full Audit Request - ${selectedVenue?.name}`)}`}
                   className="inline-flex items-center gap-2 font-semibold text-sm px-7 py-3.5 rounded-full transition-all hover:scale-105"
                   style={{
                     background: 'var(--nw-amber)',
